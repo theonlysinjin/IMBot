@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ "$1" = "debug" ] ; then
+	echo "Starting IMBot in debug mode..."
+	nohup sh -c "while sleep 10 ; do python irc.py >> imbot.log 2>&1 ; done" > /dev/null 2>&1 &
+else
+	echo "Starting IMBot..."
+	nohup sh -c "while sleep 10 ; do python irc.py >> /dev/null 2>&1 ; done" > /dev/null 2>&1 &
+fi
